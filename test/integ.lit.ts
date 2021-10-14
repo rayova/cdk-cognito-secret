@@ -13,7 +13,7 @@ export class IntegLit extends cdk.Stack {
 
     // ::SNIP
     // Create your user pool client
-    const userPoolClient = new cognito.UserPoolClient(scope, 'UserPoolClient2', {
+    const userPoolClient = new cognito.UserPoolClient(scope, 'UserPoolClient', {
       userPool,
       // Ensure that you generate a user pool client secret
       generateSecret: true,

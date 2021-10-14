@@ -8,7 +8,7 @@ This project provides an AWS CDK construct that exports an AWS Cognito client se
 <!-- <macro exec="lit-snip ./test/integ.lit.ts"> -->
 ```ts
 // Create your user pool client
-const userPoolClient = new cognito.UserPoolClient(scope, 'UserPoolClient2', {
+const userPoolClient = new cognito.UserPoolClient(scope, 'UserPoolClient', {
   userPool,
   // Ensure that you generate a user pool client secret
   generateSecret: true,

@@ -45,7 +45,6 @@ export class UserPoolClientSecret extends cdk.Construct {
         userPoolClientId: props.userPoolClient.userPoolClientId,
         secretArn: props.secret.secretArn,
         issuer: props.userPool.userPoolProviderUrl,
-        alwaysRandom: Math.random().toString(),
       },
     });
   }
