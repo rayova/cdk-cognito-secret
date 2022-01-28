@@ -1,6 +1,14 @@
-const pj = require('projen');
+const { awscdk } = require('projen');
 
-const project = new pj.AwsCdkConstructLibrary({
+const cdkDependencies = [
+  '@aws-cdk/core',
+  '@aws-cdk/aws-cognito',
+  '@aws-cdk/aws-iam',
+  '@aws-cdk/aws-lambda',
+  '@aws-cdk/aws-secretsmanager',
+  '@aws-cdk/custom-resources',
+];
+const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Josh Kellendonk',
   authorAddress: 'joshkellendonk@gmail.com',
   cdkVersion: '1.95.2',
@@ -19,24 +27,19 @@ const project = new pj.AwsCdkConstructLibrary({
 
   releaseEveryCommit: true,
   releaseToNpm: true,
-  npmAccess: pj.NpmAccess.PUBLIC,
 
-  projenUpgradeSecret: 'BOT_GITHUB_TOKEN',
+  depsUpgradeOptions: {
+    ignoreProjen: false,
+  },
+
   autoApproveUpgrades: true,
   autoApproveOptions: {
-    secret: 'GITHUB_TOKEN',
     allowedUsernames: ['github-actions', 'github-actions[bot]', 'rayova-bot'],
   },
 
   cdkDependenciesAsDeps: false,
-  cdkDependencies: [
-    '@aws-cdk/core',
-    '@aws-cdk/aws-cognito',
-    '@aws-cdk/aws-iam',
-    '@aws-cdk/aws-lambda',
-    '@aws-cdk/aws-secretsmanager',
-    '@aws-cdk/custom-resources',
-  ],
+  cdkDependencies: cdkDependencies,
+  cdkTestDependencies: cdkDependencies,
 
   devDeps: [
     'aws-cdk',
