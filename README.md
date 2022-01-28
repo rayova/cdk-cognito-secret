@@ -5,7 +5,7 @@
 This project provides an AWS CDK construct that exports an AWS Cognito client secret to a Secrets Manager secret.
 
 ## Usage
-<!-- <macro exec="lit-snip ./test/integ.lit.ts"> -->
+<!-- <macro exec="lit-snip ./test/main.integ.ts"> -->
 ```ts
 // Create your user pool client
 const userPoolClient = new cognito.UserPoolClient(scope, 'UserPoolClient', {

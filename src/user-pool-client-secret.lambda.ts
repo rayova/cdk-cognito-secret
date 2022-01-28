@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import * as AWS from 'aws-sdk';
 
-export async function onEvent(event: any) {
+export async function handler(event: any) {
   console.log('event =', event);
 
   const requestType: string = event.RequestType;

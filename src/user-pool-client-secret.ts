@@ -1,10 +1,10 @@
-import * as path from 'path';
-import * as cognito from '@aws-cdk/aws-cognito';
-import * as iam from '@aws-cdk/aws-iam';
-import * as lambda from '@aws-cdk/aws-lambda';
-import * as secretsmanager from '@aws-cdk/aws-secretsmanager';
-import * as cdk from '@aws-cdk/core';
-import * as cr from '@aws-cdk/custom-resources';
+import * as cdk from 'aws-cdk-lib';
+import * as cognito from 'aws-cdk-lib/aws-cognito';
+import * as iam from 'aws-cdk-lib/aws-iam';
+import * as secretsmanager from 'aws-cdk-lib/aws-secretsmanager';
+import * as cr from 'aws-cdk-lib/custom-resources';
+import { Construct } from 'constructs';
+import { UserPoolClientSecretFunction } from './user-pool-client-secret-function';
 
 export interface UserPoolClientSecretProps {
   /** Provide the user pool of the user pool client */
@@ -16,14 +16,11 @@ export interface UserPoolClientSecretProps {
 }
 
 /** Exports a user pool's client secret to a secrets manager secret */
-export class UserPoolClientSecret extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, props: UserPoolClientSecretProps) {
+export class UserPoolClientSecret extends Construct {
+  constructor(scope: Construct, id: string, props: UserPoolClientSecretProps) {
     super(scope, id);
 
-    const onEventHandler = new lambda.Function(this, 'OnEventHandler', {
-      runtime: lambda.Runtime.NODEJS_14_X,
-      handler: 'index.onEvent',
-      code: lambda.Code.fromAsset(path.join(__dirname, '..', 'lambda', 'user-pool-client-secret')),
+    const onEventHandler = new UserPoolClientSecretFunction(this, 'OnEventHandler', {
       initialPolicy: [
         new iam.PolicyStatement({
           effect: iam.Effect.ALLOW,
@@ -32,6 +29,7 @@ export class UserPoolClientSecret extends cdk.Construct {
         }),
       ],
     });
+
     props.secret.grantWrite(onEventHandler);
 
     const provider = new cr.Provider(this, 'Provider', {
