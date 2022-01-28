@@ -8,6 +8,9 @@
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
+    "bundle": "npx projen bundle",
+    "bundle:user-pool-client-secret.lambda": "npx projen bundle:user-pool-client-secret.lambda",
+    "bundle:user-pool-client-secret.lambda:watch": "npx projen bundle:user-pool-client-secret.lambda:watch",
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
     "compile": "npx projen compile",
@@ -15,6 +18,12 @@
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
+    "integ:main:assert": "npx projen integ:main:assert",
+    "integ:main:deploy": "npx projen integ:main:deploy",
+    "integ:main:destroy": "npx projen integ:main:destroy",
+    "integ:main:snapshot": "npx projen integ:main:snapshot",
+    "integ:main:watch": "npx projen integ:main:watch",
+    "integ:snapshot-all": "npx projen integ:snapshot-all",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:js": "npx projen package:js",
@@ -29,9 +38,7 @@
     "unbump": "npx projen unbump",
     "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
-    "projen": "npx projen",
-    "integ:lit": "cdk --app \"ts-node -P tsconfig.dev.json test/integ.lit.ts\"",
-    "build:functions": "esbuild --bundle --target=node14 --platform=node --external:aws-sdk src/lambda/user-pool-client-secret.ts --outfile=lambda/user-pool-client-secret/index.js"
+    "projen": "npx projen"
   },
   "author": {
     "name": "Josh Kellendonk",
@@ -39,20 +46,15 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.95.2",
-    "@aws-cdk/aws-cognito": "^1.95.2",
-    "@aws-cdk/aws-iam": "^1.95.2",
-    "@aws-cdk/aws-lambda": "^1.95.2",
-    "@aws-cdk/aws-secretsmanager": "^1.95.2",
-    "@aws-cdk/core": "^1.95.2",
-    "@aws-cdk/custom-resources": "^1.95.2",
     "@types/jest": "^27.4.0",
     "@types/node": "^12",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "@wheatstalk/lit-snip": "^0.0",
-    "aws-cdk": "^1.141.0",
+    "aws-cdk": "^2",
+    "aws-cdk-lib": "2.0.0",
     "aws-sdk": "^2.1065.0",
+    "constructs": "10.0.5",
     "esbuild": "^0.14.14",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
@@ -74,13 +76,8 @@
     "typescript": "^4.5.5"
   },
   "peerDependencies": {
-    "@aws-cdk/aws-cognito": "^1.95.2",
-    "@aws-cdk/aws-iam": "^1.95.2",
-    "@aws-cdk/aws-lambda": "^1.95.2",
-    "@aws-cdk/aws-secretsmanager": "^1.95.2",
-    "@aws-cdk/core": "^1.95.2",
-    "@aws-cdk/custom-resources": "^1.95.2",
-    "constructs": "^3.2.27"
+    "aws-cdk-lib": "^2.0.0",
+    "constructs": "^10.0.5"
   },
   "keywords": [
     "cdk",

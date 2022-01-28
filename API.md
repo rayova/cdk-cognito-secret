@@ -16,7 +16,7 @@ new UserPoolClientSecret(scope: Construct, id: string, props: UserPoolClientSecr
 
 ##### `scope`<sup>Required</sup> <a name="@rayova/cdk-cognito-secret.UserPoolClientSecret.parameter.scope"></a>
 
-- *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
+- *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
@@ -54,7 +54,7 @@ const userPoolClientSecretProps: UserPoolClientSecretProps = { ... }
 public readonly secret: Secret;
 ```
 
-- *Type:* [`@aws-cdk/aws-secretsmanager.Secret`](#@aws-cdk/aws-secretsmanager.Secret)
+- *Type:* [`aws-cdk-lib.aws_secretsmanager.Secret`](#aws-cdk-lib.aws_secretsmanager.Secret)
 
 Stores client credentials in this secret.
 
@@ -66,7 +66,7 @@ Stores client credentials in this secret.
 public readonly userPool: UserPool;
 ```
 
-- *Type:* [`@aws-cdk/aws-cognito.UserPool`](#@aws-cdk/aws-cognito.UserPool)
+- *Type:* [`aws-cdk-lib.aws_cognito.UserPool`](#aws-cdk-lib.aws_cognito.UserPool)
 
 Provide the user pool of the user pool client.
 
@@ -78,7 +78,7 @@ Provide the user pool of the user pool client.
 public readonly userPoolClient: UserPoolClient;
 ```
 
-- *Type:* [`@aws-cdk/aws-cognito.UserPoolClient`](#@aws-cdk/aws-cognito.UserPoolClient)
+- *Type:* [`aws-cdk-lib.aws_cognito.UserPoolClient`](#aws-cdk-lib.aws_cognito.UserPoolClient)
 
 Provide the user pool client from which to get the secret.
 

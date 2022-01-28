@@ -32,7 +32,6 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
-/lambda
 !/.projenrc.js
 /test-reports/
 junit.xml
@@ -52,6 +51,19 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+/assets/
+!/src/user-pool-client-secret-function.ts
+test/main.integ.snapshot/asset.*
+test/main.integ.snapshot/**/asset.*
+test/main.integ.snapshot/cdk.out
+test/main.integ.snapshot/**/cdk.out
+test/main.integ.snapshot/manifest.json
+test/main.integ.snapshot/**/manifest.json
+test/main.integ.snapshot/tree.json
+test/main.integ.snapshot/**/tree.json
+test/.tmp/main.integ/deploy.cdk.out
+test/.tmp/main.integ/synth.cdk.out
+!test/main.integ.snapshot
 /.idea
 /cdk.out
 tmp-*

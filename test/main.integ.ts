@@ -1,10 +1,11 @@
-import * as cognito from '@aws-cdk/aws-cognito';
-import * as secretsmanager from '@aws-cdk/aws-secretsmanager';
-import * as cdk from '@aws-cdk/core';
+import * as cdk from 'aws-cdk-lib';
+import * as cognito from 'aws-cdk-lib/aws-cognito';
+import * as secretsmanager from 'aws-cdk-lib/aws-secretsmanager';
+import { Construct } from 'constructs';
 import { UserPoolClientSecret } from '../src';
 
 export class IntegLit extends cdk.Stack {
-  constructor(scope_: cdk.Construct, id: string, props: cdk.StackProps = {}) {
+  constructor(scope_: Construct, id: string, props: cdk.StackProps = {}) {
     super(scope_, id, props);
 
     // Snipped docs want to show 'scope' instead of 'this'
@@ -34,7 +35,6 @@ export class IntegLit extends cdk.Stack {
   }
 }
 
-if (require.main === module) {
-  const app = new cdk.App();
-  new IntegLit(app, 'integ-cdk-congito-secret-lit');
-}
+const app = new cdk.App();
+new IntegLit(app, 'integ-cdk-congito-secret');
+app.synth();
