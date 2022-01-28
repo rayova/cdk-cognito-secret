@@ -336,9 +336,6 @@
         },
         {
           "spawn": "integ:main:assert"
-        },
-        {
-          "exec": "esbuild --bundle --target=node14 --platform=node --external:aws-sdk src/lambda/user-pool-client-secret.ts --outfile=lambda/user-pool-client-secret/index.js"
         }
       ]
     },

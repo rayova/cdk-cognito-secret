@@ -51,9 +51,6 @@ for (const ignore of ignores) {
   project.addPackageIgnore(ignore);
 }
 
-const buildFunctionsCommand = 'esbuild --bundle --target=node14 --platform=node --external:aws-sdk src/lambda/user-pool-client-secret.ts --outfile=lambda/user-pool-client-secret/index.js';
-project.testTask.exec(buildFunctionsCommand);
-
 const macros = project.addTask('readme-macros');
 macros.exec('shx mv README.md README.md.bak');
 macros.exec('shx cat README.md.bak | markmac > README.md');
