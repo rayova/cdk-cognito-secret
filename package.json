@@ -40,6 +40,12 @@
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.95.2",
+    "@aws-cdk/aws-cognito": "^1.95.2",
+    "@aws-cdk/aws-iam": "^1.95.2",
+    "@aws-cdk/aws-lambda": "^1.95.2",
+    "@aws-cdk/aws-secretsmanager": "^1.95.2",
+    "@aws-cdk/core": "^1.95.2",
+    "@aws-cdk/custom-resources": "^1.95.2",
     "@types/jest": "^27.4.0",
     "@types/node": "^12",
     "@typescript-eslint/eslint-plugin": "^5",

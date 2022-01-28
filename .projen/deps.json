@@ -1,6 +1,36 @@
 {
   "dependencies": [
     {
+      "name": "@aws-cdk/aws-cognito",
+      "version": "^1.95.2",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/aws-iam",
+      "version": "^1.95.2",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/aws-lambda",
+      "version": "^1.95.2",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/aws-secretsmanager",
+      "version": "^1.95.2",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/core",
+      "version": "^1.95.2",
+      "type": "build"
+    },
+    {
+      "name": "@aws-cdk/custom-resources",
+      "version": "^1.95.2",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },

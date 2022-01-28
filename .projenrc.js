@@ -1,5 +1,13 @@
 const { awscdk } = require('projen');
 
+const cdkDependencies = [
+  '@aws-cdk/core',
+  '@aws-cdk/aws-cognito',
+  '@aws-cdk/aws-iam',
+  '@aws-cdk/aws-lambda',
+  '@aws-cdk/aws-secretsmanager',
+  '@aws-cdk/custom-resources',
+];
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Josh Kellendonk',
   authorAddress: 'joshkellendonk@gmail.com',
@@ -30,14 +38,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   },
 
   cdkDependenciesAsDeps: false,
-  cdkDependencies: [
-    '@aws-cdk/core',
-    '@aws-cdk/aws-cognito',
-    '@aws-cdk/aws-iam',
-    '@aws-cdk/aws-lambda',
-    '@aws-cdk/aws-secretsmanager',
-    '@aws-cdk/custom-resources',
-  ],
+  cdkDependencies: cdkDependencies,
+  cdkTestDependencies: cdkDependencies,
 
   devDeps: [
     'aws-cdk',
